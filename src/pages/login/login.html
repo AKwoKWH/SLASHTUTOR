@@ -1,0 +1,37 @@
+<ion-header>
+  <ion-navbar color="primary">
+    <button ion-button menuToggle><ion-icon name="menu"></ion-icon></button>
+    <ion-title>Login</ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content padding>
+  
+  <span *ngIf="currentUser==null">
+  <ion-item>
+    <ion-label stacked>Phone Number</ion-label>
+    <ion-input type="tel" [(ngModel)]="phoneNumber"></ion-input>
+  </ion-item>
+
+  <button ion-button id="sign-in-button" (click)="SigninWithMoblie(phoneNumber)">
+    Sign In with your Phone Number
+  </button>
+
+  <button ion-button id="fb-sign-in-button" (click)="SigninWithFacebook()">
+    Sign In Wtih Facebook
+  </button>
+
+  </span>
+
+  <div id="recaptcha-container"></div>
+
+  <span *ngIf="currentUser!=null">
+    <button ion-button (click)="CreateUserProfile()">Create Profile in Database</button>
+    <button ion-button (click)="Signout()">Sign Out</button>
+    <div>SIGNED IN AS BELOW:<br></div>
+    {{currentUser|json}}
+  </span>
+
+
+
+</ion-content>

@@ -1,0 +1,116 @@
+<ion-header>
+  <ion-navbar color="primary">
+    <button ion-button menuToggle>
+      <ion-icon name="menu"></ion-icon>
+    </button>
+    <ion-title>My Profile</ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content>
+
+
+  <!--<ion-fab top right edge>
+    <button ion-fab color="danger" (click)="editProfile()"><ion-icon name="create"></ion-icon></button>
+  </ion-fab>-->
+    
+    <!--<ion-list>
+      <img src='assets/imgs/noProfile.png' class='img-circle' (click)="editProfile()">
+    </ion-list>-->
+
+
+    <label class="item fileContainer">
+      <div class="circular--portrait">
+        <!--<img class='img-circle' src="assets/imgs/noProfile.png">-->
+        <img src="assets/imgs/noProfile.png" *ngIf="currentUserInfo.photoURLCustom64==null">
+        <img src={{currentUserInfo.photoURLCustom64}}>
+        <input type="file" name="file" accept="image/*;capture=camera" ngModel (change)="ProfilePic($event)">
+      </div>
+    </label>
+    
+    <ion-list>
+
+      <!--<ion-item>
+        <span>Phone Number: {{(currentUserInfo)?.phonenumber}}</span>
+      </ion-item>-->
+      
+      <ion-item>
+        <ion-label>Name</ion-label>
+        <ion-input type="text" [(ngModel)]="userInfoForm.userName" name="title" disabled='{{isReadonlyForm}}==false'></ion-input>
+      </ion-item>
+
+      <ion-item>
+        <ion-label>Phone Number</ion-label>
+        <ion-input type="text" [(ngModel)]="currentUserInfo.phonenumber" name="title" disabled='ture'></ion-input>
+      </ion-item>
+
+      <ion-item>
+        <ion-label>Gender</ion-label>
+        <ion-select [(ngModel)]="userInfoForm.gender.Summary" multiple="false" disabled='{{isReadonlyForm}}==false'>
+          <ion-option selected>Male</ion-option>
+          <ion-option [selected]='("Male"=="Female")'>Female</ion-option>
+        </ion-select>
+      </ion-item> 
+
+      <ion-item>
+        <ion-label>Education</ion-label>
+        <ion-select [(ngModel)]="userInfoForm.education.Summary" multiple="true" disabled='{{isReadonlyForm}}==false'>
+          <ion-option [selected]=true>HKU</ion-option>
+          <ion-option [selected]='true'>CUHK</ion-option>
+          <ion-option [selected]='true'>HKUST</ion-option>
+          <ion-option [selected]='true'>HKIED</ion-option>
+          <ion-option [selected]='true'>Oversea</ion-option>
+          <ion-option [selected]='true'>Others</ion-option>
+        </ion-select>
+      </ion-item>      
+
+      <ion-item>
+        <ion-label>Education Level</ion-label>
+        <ion-select [(ngModel)]="userInfoForm.degree.Summary" multiple="false" disabled='{{isReadonlyForm}}==false'>
+          <ion-option selected>Bachelor</ion-option>
+          <ion-option>Master</ion-option>
+          <ion-option>Current Teacher</ion-option>
+        </ion-select>
+      </ion-item>    
+
+      <ion-item>
+        <ion-label>Expertise Areas</ion-label>
+        <ion-select [(ngModel)]="userInfoForm.expertArea.Summary" multiple="true" disabled='{{isReadonlyForm}}==false'>
+          <ion-option>Chinese</ion-option>
+          <ion-option>English</ion-option>
+          <ion-option>Mathematics</ion-option>
+          <ion-option>Physics</ion-option>
+          <ion-option>Chemistry</ion-option>
+          <ion-option>General Education</ion-option>
+          <ion-option>All Subjects</ion-option>          
+        </ion-select>
+      </ion-item>      
+
+      <ion-item>
+        <ion-label>Expertise level</ion-label>
+        <ion-select [(ngModel)]="userInfoForm.expertLevel.Summary" multiple="true" disabled='{{isReadonlyForm}}==false'>
+          <ion-option value='Primary'>Primary School</ion-option>
+          <ion-option value='SecondaryJunior'>Junior Secondary School</ion-option>
+          <ion-option value='SecondarySenior'>Senior Secondary School</ion-option>
+          <ion-option value='University'>University</ion-option>
+        </ion-select>
+      </ion-item>      
+
+      <ion-item>
+        <ion-label>Request Pay</ion-label>
+        <ion-input type="number" [(ngModel)]="userInfoForm.requestPay" name="requestPay" placeholder="" disabled='{{isReadonlyForm}}==false'></ion-input>
+      </ion-item>
+
+      <ion-item>
+        <ion-label>Description</ion-label>
+        <ion-textarea [(ngModel)]="userInfoForm.selfDescription" name="description" placeholder="" disabled='{{isReadonlyForm}}==false'></ion-textarea>
+      </ion-item>
+
+    </ion-list>
+
+    <button ion-button full  (click)="logForm()">Update</button>
+
+
+
+
+</ion-content>
