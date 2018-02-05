@@ -9,6 +9,8 @@ import { LoginPage } from '../pages/login/login';
 import { ProfilePage } from '../pages/profile/profile';
 import { SubscriptionPage } from '../pages/subscription/subscription';
 
+// import { Storage } from '@ionic/storage';
+
 
 
 
@@ -21,8 +23,13 @@ export class MyApp {
   rootPage: any = HomePage;
   pages: Array<{title: string, component: any}>;
 
-  constructor(public platform: Platform, public statusBar: StatusBar, public splashScreen: SplashScreen) {
-    this.initializeApp();
+  constructor(
+    public platform: Platform, 
+    public statusBar: StatusBar, 
+    public splashScreen: SplashScreen
+    // public storage: Storage
+  ) {
+      this.initializeApp();
 
     // used for an example of ngFor and navigation
     this.pages = [

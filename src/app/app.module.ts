@@ -8,10 +8,16 @@ import { ListPage } from '../pages/list/list';
 import { LoginPage } from '../pages/login/login';
 import { ProfilePage } from '../pages/profile/profile';
 import { SubscriptionPage } from '../pages/subscription/subscription';
+// import { Storage } from '@ionic/storage';
+
 
 
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
+
+import {FormsModule} from '@angular/forms';
+// import { Stripe } from 'stripe'
+
 
 //FIREBASE
 import { AngularFireModule } from 'angularfire2';
@@ -41,7 +47,8 @@ const firebaseConfig = {
     IonicModule.forRoot(MyApp),
     AngularFireModule.initializeApp(firebaseConfig),
     AngularFireAuthModule,
-    AngularFirestoreModule
+    AngularFirestoreModule,
+    FormsModule
   ],
   bootstrap: [IonicApp],
   entryComponents: [

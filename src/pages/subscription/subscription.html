@@ -8,53 +8,28 @@
 </ion-header>
 
 <ion-content>
-    <!--<button ion-button (click)="GetUserList()">Get ALL User Profile in Database</button>-->
-    <button ion-button (click)="UploadTestData()">Create Test Data in Database</button>
+  <div><h1>ORDER DETAILS</h1></div>
+  <ion-item>
+    <ion-list>Name: Testing</ion-list>
+    <ion-list>Subject: Chinese</ion-list>
+    <ion-list>Duration: 2 hrs</ion-list>
+    <ion-list>Frequency: 1 per week</ion-list>
+    <ion-list>Fee: 200 per lesson</ion-list>
 
-      <ion-item>
-        <ion-label>Education</ion-label>
-        <ion-select [(ngModel)]="searchUserForm.education" multiple="true">
-          <ion-option selected>HKU</ion-option>
-          <ion-option>CUHK</ion-option>
-          <ion-option>HKUST</ion-option>
-        </ion-select>
-      </ion-item>      
-      
-      <ion-item>
-        <ion-label>Expertise Areas</ion-label>
-        <ion-select [(ngModel)]="searchUserForm.expert" multiple="false">
-          <ion-option selected>Chinese</ion-option>
-          <ion-option>English</ion-option>
-          <ion-option>Math</ion-option>
-        </ion-select>
-      </ion-item>      
+  </ion-item>
+  <br>
+  <div  text-center>
+  <button center ion-button round (click)="showStripeSub()">Pay with Stripe</button>
+  </div>
+  <hr>
+  <div text-center>
+    RETURN TOKEN: <br>{{stripetoken}}
+  </div>
 
-      <ion-item>
-        <ion-label>Expertise level</ion-label>
-        <ion-select [(ngModel)]="searchUserForm.level" multiple="false">
-          <ion-option selected>Primary School</ion-option>
-          <ion-option>Junior Secondary School</ion-option>
-          <ion-option>Senior Secondary School</ion-option>
-          <ion-option>University</ion-option>
-        </ion-select>
-      </ion-item> 
 
-      <ion-item>
-        <ion-label>Gender</ion-label>
-        <ion-select [(ngModel)]="searchUserForm.gender" multiple="true">
-          <ion-option>Male</ion-option>
-          <ion-option selected>Female</ion-option>
-        </ion-select>
-      </ion-item>         
 
-    <button ion-button (click)="GetUserList()">Get Filtered User Profile in Database</button>
 
-    <div>
-    <br>User=====================<br>
-    <ion-list class="nopadding" *ngFor="let result of userList | async ">
-      {{result|json}}
-    </ion-list>
-    </div>
+
 
 
 </ion-content>
